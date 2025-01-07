@@ -1,5 +1,16 @@
 package io.quarkus.runtime.configuration;
 
+import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_LOCATIONS;
+import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_LOG_VALUES;
+import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_MAPPING_VALIDATE_UNKNOWN;
+import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_PROFILE;
+import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_PROFILE_PARENT;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.OptionalInt;
+
 import io.quarkus.runtime.LaunchMode;
 import io.smallrye.config.ConfigSourceInterceptor;
 import io.smallrye.config.ConfigSourceInterceptorContext;
@@ -10,17 +21,6 @@ import io.smallrye.config.Priorities;
 import io.smallrye.config.RelocateConfigSourceInterceptor;
 import io.smallrye.config.SmallRyeConfigBuilder;
 import io.smallrye.config.SmallRyeConfigBuilderCustomizer;
-
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.OptionalInt;
-
-import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_LOCATIONS;
-import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_LOG_VALUES;
-import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_MAPPING_VALIDATE_UNKNOWN;
-import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_PROFILE;
-import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_PROFILE_PARENT;
 
 public class QuarkusConfigBuilderCustomizer implements SmallRyeConfigBuilderCustomizer {
     @Override
