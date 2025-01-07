@@ -1,5 +1,23 @@
 package io.quarkus.runtime;
 
+import io.quarkus.bootstrap.logging.InitialConfigurator;
+import io.quarkus.bootstrap.runner.RunnerClassLoader;
+import io.quarkus.runtime.configuration.ConfigurationException;
+import io.quarkus.runtime.graal.DiagnosticPrinter;
+import io.quarkus.runtime.util.ExceptionUtil;
+import io.quarkus.runtime.util.StringUtil;
+import io.smallrye.config.ConfigValidationException;
+import jakarta.enterprise.context.spi.CreationalContext;
+import jakarta.enterprise.inject.Any;
+import jakarta.enterprise.inject.spi.Bean;
+import jakarta.enterprise.inject.spi.BeanManager;
+import jakarta.enterprise.inject.spi.CDI;
+import org.jboss.logging.Logger;
+import org.jboss.logmanager.handlers.AsyncHandler;
+import org.wildfly.common.lock.Locks;
+import sun.misc.Signal;
+import sun.misc.SignalHandler;
+
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -10,26 +28,6 @@ import java.util.function.Consumer;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
 import java.util.stream.Collectors;
-
-import jakarta.enterprise.context.spi.CreationalContext;
-import jakarta.enterprise.inject.Any;
-import jakarta.enterprise.inject.spi.Bean;
-import jakarta.enterprise.inject.spi.BeanManager;
-import jakarta.enterprise.inject.spi.CDI;
-
-import org.jboss.logging.Logger;
-import org.jboss.logmanager.handlers.AsyncHandler;
-import org.wildfly.common.lock.Locks;
-
-import io.quarkus.bootstrap.logging.InitialConfigurator;
-import io.quarkus.bootstrap.runner.RunnerClassLoader;
-import io.quarkus.runtime.configuration.ConfigurationException;
-import io.quarkus.runtime.graal.DiagnosticPrinter;
-import io.quarkus.runtime.util.ExceptionUtil;
-import io.quarkus.runtime.util.StringUtil;
-import io.smallrye.config.ConfigValidationException;
-import sun.misc.Signal;
-import sun.misc.SignalHandler;
 
 /**
  * Manages the lifecycle of a Quarkus application.
@@ -50,16 +48,13 @@ public class ApplicationLifecycleManager {
 
     // used by ShutdownEvent to propagate the information about shutdown reason
     public static volatile ShutdownEvent.ShutdownReason shutdownReason = ShutdownEvent.ShutdownReason.STANDARD;
-    private static final BiConsumer<Integer, Throwable> MAIN_EXIT_CODE_HANDLER = new BiConsumer<>() {
-        @Override
-        public void accept(Integer integer, Throwable cause) {
-            Logger logger = Logger.getLogger(Application.class);
-            logger.debugf("Shutting down with exit code %s", integer);
-            if (logger.isTraceEnabled()) {
-                logger.tracef(new RuntimeException("Shutdown Stack Trace"), "Shutdown triggered");
-            }
-            System.exit(integer);
+    private static final BiConsumer<Integer, Throwable> MAIN_EXIT_CODE_HANDLER = (integer, cause) -> {
+        Logger logger = Logger.getLogger(Application.class);
+        logger.debugf("Shutting down with exit code %s", integer);
+        if (logger.isTraceEnabled()) {
+            logger.tracef(new RuntimeException("Shutdown Stack Trace"), "Shutdown triggered");
         }
+        System.exit(integer);
     };
     private static final Consumer<Boolean> NOOP_ALREADY_STARTED_CALLBACK = new Consumer<>() {
         @Override
