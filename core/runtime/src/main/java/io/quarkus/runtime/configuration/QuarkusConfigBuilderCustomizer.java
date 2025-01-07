@@ -1,17 +1,5 @@
 package io.quarkus.runtime.configuration;
 
-import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_LOCATIONS;
-import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_LOG_VALUES;
-import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_MAPPING_VALIDATE_UNKNOWN;
-import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_PROFILE;
-import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_PROFILE_PARENT;
-
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.OptionalInt;
-import java.util.function.Function;
-
 import io.quarkus.runtime.LaunchMode;
 import io.smallrye.config.ConfigSourceInterceptor;
 import io.smallrye.config.ConfigSourceInterceptorContext;
@@ -22,6 +10,17 @@ import io.smallrye.config.Priorities;
 import io.smallrye.config.RelocateConfigSourceInterceptor;
 import io.smallrye.config.SmallRyeConfigBuilder;
 import io.smallrye.config.SmallRyeConfigBuilderCustomizer;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.OptionalInt;
+
+import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_LOCATIONS;
+import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_LOG_VALUES;
+import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_MAPPING_VALIDATE_UNKNOWN;
+import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_PROFILE;
+import static io.smallrye.config.SmallRyeConfig.SMALLRYE_CONFIG_PROFILE_PARENT;
 
 public class QuarkusConfigBuilderCustomizer implements SmallRyeConfigBuilderCustomizer {
     @Override
@@ -51,26 +50,23 @@ public class QuarkusConfigBuilderCustomizer implements SmallRyeConfigBuilderCust
                 relocations.put(SMALLRYE_CONFIG_LOG_VALUES, "quarkus.config.log.values");
 
                 // Also adds relocations to all profiles
-                return new RelocateConfigSourceInterceptor(new Function<String, String>() {
-                    @Override
-                    public String apply(final String name) {
-                        String relocate = relocations.get(name);
-                        if (relocate != null) {
-                            return relocate;
-                        }
-
-                        if (name.startsWith("%") && name.endsWith(SMALLRYE_CONFIG_LOCATIONS)) {
-                            io.smallrye.config.NameIterator ni = new io.smallrye.config.NameIterator(name);
-                            return ni.getNextSegment() + "." + "quarkus.config.locations";
-                        }
-
-                        if (name.startsWith("%") && name.endsWith(SMALLRYE_CONFIG_PROFILE_PARENT)) {
-                            io.smallrye.config.NameIterator ni = new NameIterator(name);
-                            return ni.getNextSegment() + "." + "quarkus.config.profile.parent";
-                        }
-
-                        return name;
+                return new RelocateConfigSourceInterceptor(name -> {
+                    String relocate = relocations.get(name);
+                    if (relocate != null) {
+                        return relocate;
                     }
+
+                    if (name.startsWith("%") && name.endsWith(SMALLRYE_CONFIG_LOCATIONS)) {
+                        NameIterator ni = new NameIterator(name);
+                        return ni.getNextSegment() + "." + "quarkus.config.locations";
+                    }
+
+                    if (name.startsWith("%") && name.endsWith(SMALLRYE_CONFIG_PROFILE_PARENT)) {
+                        NameIterator ni = new NameIterator(name);
+                        return ni.getNextSegment() + "." + "quarkus.config.profile.parent";
+                    }
+
+                    return name;
                 }) {
                     @Override
                     public Iterator<String> iterateNames(final ConfigSourceInterceptorContext context) {
