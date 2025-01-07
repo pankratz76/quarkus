@@ -22,7 +22,7 @@ public interface MetricsFactory {
     public static enum Type {
         APPLICATION,
         BASE,
-        VENDOR;
+        VENDOR
     }
 
     /**
