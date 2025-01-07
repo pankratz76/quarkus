@@ -1,7 +1,6 @@
 package io.quarkus.runtime.logging;
 
-import org.jboss.logging.Logger;
-import org.jboss.logmanager.ExtLogRecord;
+import static org.jboss.logmanager.Level.ERROR;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -9,6 +8,9 @@ import java.util.Map;
 import java.util.logging.Filter;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
+
+import org.jboss.logging.Logger;
+import org.jboss.logmanager.ExtLogRecord;
 
 public class LogCleanupFilter implements Filter {
 
@@ -28,11 +30,11 @@ public class LogCleanupFilter implements Filter {
     @Override
     public boolean isLoggable(LogRecord record) {
         //we also use this filter to add a warning about errors generated after shutdown
-        if (record.getLevel().intValue() >= org.jboss.logmanager.Level.ERROR.intValue()
+        if (record.getLevel().intValue() >= ERROR.intValue()
                 && shutdownNotifier.shutdown
                 && record.getMessage().endsWith(SHUTDOWN_MESSAGE)
                 && record instanceof final ExtLogRecord elr) {
-                    elr.setMessage(record.getMessage() + SHUTDOWN_MESSAGE, elr.getFormatStyle());
+            elr.setMessage(record.getMessage() + SHUTDOWN_MESSAGE, elr.getFormatStyle());
         } else {
             record.setMessage(record.getMessage() + SHUTDOWN_MESSAGE);
         }

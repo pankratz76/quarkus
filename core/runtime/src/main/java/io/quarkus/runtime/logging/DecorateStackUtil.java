@@ -43,7 +43,7 @@ public class DecorateStackUtil {
                     String header = "Exception in " + stackTraceElement.getFileName() + ":" + stackTraceElement.getLineNumber();
                     return header + "\n" + String.join("\n", contextLines);
                 }
-            } catch (IOException e) {
+            } catch (IOException ignored) {
                 // Could not find the source for some reason. Just return nothing then
             }
         }
