@@ -1,8 +1,8 @@
 package io.quarkus.runtime.configuration;
 
-import java.util.NoSuchElementException;
-
 import org.wildfly.common.Assert;
+
+import java.util.NoSuchElementException;
 
 /**
  */
@@ -172,11 +172,8 @@ public final class NameIterator {
                     return cookieOf(state, pos);
                 } else if (ch == '"') {
                     state = FS_QUOTE;
-                } else if (ch == '\\') {
-                    // skip
-                } else {
-                    // regular char
-                    return cookieOf(state, pos);
+                } else if (ch != '\\') {
+                    return cookieOf(state, pos); // regular char
                 }
             } else if (state == FS_QUOTE) {
                 if (pos >= 1 && name.charAt(pos - 1) == '\\') {
@@ -184,9 +181,7 @@ public final class NameIterator {
                     return cookieOf(state, pos);
                 } else if (ch == '"') {
                     state = FS_INITIAL;
-                } else if (ch == '\\') {
-                    // skip
-                } else {
+                } else if (ch != '\\') {
                     return cookieOf(state, pos);
                 }
             } else {
