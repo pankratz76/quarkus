@@ -1,13 +1,13 @@
 package io.quarkus.resteasy.reactive.server.runtime.observability;
 
-import static io.quarkus.resteasy.reactive.server.runtime.observability.ObservabilityUtil.*;
-
-import java.util.regex.Pattern;
-
+import io.vertx.ext.web.RoutingContext;
 import org.jboss.resteasy.reactive.server.core.ResteasyReactiveRequestContext;
 import org.jboss.resteasy.reactive.server.spi.ServerRestHandler;
 
-import io.vertx.ext.web.RoutingContext;
+import java.util.regex.Pattern;
+
+import static io.quarkus.resteasy.reactive.server.runtime.observability.ObservabilityUtil.getUrlPathTemplate;
+import static io.quarkus.resteasy.reactive.server.runtime.observability.ObservabilityUtil.setUrlPathTemplate;
 
 public class ObservabilityHandler implements ServerRestHandler {
 

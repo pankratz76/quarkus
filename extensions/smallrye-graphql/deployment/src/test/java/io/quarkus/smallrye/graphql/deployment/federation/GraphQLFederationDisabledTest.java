@@ -1,17 +1,16 @@
 package io.quarkus.smallrye.graphql.deployment.federation;
 
-import static org.hamcrest.Matchers.*;
-import static org.hamcrest.Matchers.containsString;
-
+import io.quarkus.smallrye.graphql.deployment.AbstractGraphQLTest;
+import io.quarkus.test.QuarkusUnitTest;
+import io.restassured.RestAssured;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Query;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
-import io.quarkus.smallrye.graphql.deployment.AbstractGraphQLTest;
-import io.quarkus.test.QuarkusUnitTest;
-import io.restassured.RestAssured;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.not;
 
 /**
  * Make sure that if no Federation related annotations are in the application, then Federation is
