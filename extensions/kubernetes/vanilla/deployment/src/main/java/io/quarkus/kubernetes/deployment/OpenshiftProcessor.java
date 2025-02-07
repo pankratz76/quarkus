@@ -1,6 +1,14 @@
 package io.quarkus.kubernetes.deployment;
 
-import static io.quarkus.kubernetes.deployment.Constants.*;
+import static io.quarkus.kubernetes.deployment.Constants.DEFAULT_S2I_IMAGE_NAME;
+import static io.quarkus.kubernetes.deployment.Constants.LIVENESS_PROBE;
+import static io.quarkus.kubernetes.deployment.Constants.OPENSHIFT;
+import static io.quarkus.kubernetes.deployment.Constants.OPENSHIFT_APP_RUNTIME;
+import static io.quarkus.kubernetes.deployment.Constants.OPENSHIFT_INTERNAL_REGISTRY_PROJECT;
+import static io.quarkus.kubernetes.deployment.Constants.QUARKUS;
+import static io.quarkus.kubernetes.deployment.Constants.READINESS_PROBE;
+import static io.quarkus.kubernetes.deployment.Constants.ROUTE;
+import static io.quarkus.kubernetes.deployment.Constants.STARTUP_PROBE;
 import static io.quarkus.kubernetes.deployment.KubernetesCommonHelper.printMessageAboutPortsThatCantChange;
 import static io.quarkus.kubernetes.deployment.KubernetesConfigUtil.MANAGEMENT_PORT_NAME;
 import static io.quarkus.kubernetes.deployment.KubernetesConfigUtil.managementPortIsEnabled;

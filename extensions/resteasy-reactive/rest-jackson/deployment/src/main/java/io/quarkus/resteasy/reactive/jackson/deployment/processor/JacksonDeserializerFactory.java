@@ -15,8 +15,6 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.jboss.jandex.*;
-
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -43,6 +41,15 @@ import io.quarkus.gizmo.MethodDescriptor;
 import io.quarkus.gizmo.ResultHandle;
 import io.quarkus.gizmo.Switch;
 import io.quarkus.resteasy.reactive.jackson.runtime.mappers.JacksonMapperUtil;
+import org.jboss.jandex.ClassInfo;
+import org.jboss.jandex.FieldInfo;
+import org.jboss.jandex.IndexView;
+import org.jboss.jandex.MethodInfo;
+import org.jboss.jandex.MethodParameterInfo;
+import org.jboss.jandex.ParameterizedType;
+import org.jboss.jandex.Type;
+import org.jboss.jandex.TypeVariable;
+import org.jboss.jandex.VoidType;
 
 /**
  * Generates an implementation of the Jackson's {@code StdDeserializer} for each class that needs to be deserialized from json.

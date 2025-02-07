@@ -3,7 +3,7 @@ package io.quarkus.smallrye.graphql.client.deployment;
 import static io.smallrye.graphql.client.core.Argument.arg;
 import static io.smallrye.graphql.client.core.Document.document;
 import static io.smallrye.graphql.client.core.Field.field;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.Duration;
 import java.util.List;

@@ -3,7 +3,7 @@ package io.quarkus.micrometer.runtime.binder.mpmetrics;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Singleton;
 
-import org.eclipse.microprofile.metrics.*;
+import org.eclipse.microprofile.metrics.MetricRegistry;
 import org.eclipse.microprofile.metrics.annotation.RegistryType;
 
 import io.micrometer.core.instrument.MeterRegistry;

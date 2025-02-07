@@ -1,6 +1,9 @@
 package io.quarkus.kubernetes.deployment;
 
-import static io.quarkus.kubernetes.deployment.Constants.*;
+import static io.quarkus.kubernetes.deployment.Constants.KNATIVE;
+import static io.quarkus.kubernetes.deployment.Constants.KNATIVE_SERVICE;
+import static io.quarkus.kubernetes.deployment.Constants.KNATIVE_SERVICE_GROUP;
+import static io.quarkus.kubernetes.deployment.Constants.KNATIVE_SERVICE_VERSION;
 import static io.quarkus.kubernetes.spi.KubernetesDeploymentTargetBuildItem.DEFAULT_PRIORITY;
 
 import java.util.ArrayList;

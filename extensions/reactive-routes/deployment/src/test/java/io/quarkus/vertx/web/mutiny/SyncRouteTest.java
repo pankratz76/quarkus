@@ -1,7 +1,9 @@
 package io.quarkus.vertx.web.mutiny;
 
 import static io.restassured.RestAssured.when;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 
 import java.net.URL;
 

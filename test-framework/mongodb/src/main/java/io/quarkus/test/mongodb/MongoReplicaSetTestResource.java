@@ -1,6 +1,7 @@
 package io.quarkus.test.mongodb;
 
-import static org.awaitility.Durations.*;
+import static org.awaitility.Durations.ONE_MINUTE;
+import static org.awaitility.Durations.ONE_SECOND;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;

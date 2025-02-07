@@ -1,6 +1,6 @@
 package io.quarkus.hibernate.orm.stateless;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 

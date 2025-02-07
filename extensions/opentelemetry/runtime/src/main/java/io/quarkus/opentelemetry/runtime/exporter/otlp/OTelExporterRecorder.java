@@ -15,6 +15,12 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import io.quarkus.opentelemetry.runtime.config.runtime.exporter.CompressionType;
+import io.quarkus.opentelemetry.runtime.config.runtime.exporter.OtlpExporterConfig;
+import io.quarkus.opentelemetry.runtime.config.runtime.exporter.OtlpExporterLogsConfig;
+import io.quarkus.opentelemetry.runtime.config.runtime.exporter.OtlpExporterMetricsConfig;
+import io.quarkus.opentelemetry.runtime.config.runtime.exporter.OtlpExporterRuntimeConfig;
+import io.quarkus.opentelemetry.runtime.config.runtime.exporter.OtlpExporterTracesConfig;
 import jakarta.enterprise.inject.Instance;
 import jakarta.enterprise.util.TypeLiteral;
 
@@ -43,7 +49,6 @@ import io.quarkus.arc.SyntheticCreationalContext;
 import io.quarkus.opentelemetry.runtime.config.build.OTelBuildConfig;
 import io.quarkus.opentelemetry.runtime.config.runtime.BatchSpanProcessorConfig;
 import io.quarkus.opentelemetry.runtime.config.runtime.OTelRuntimeConfig;
-import io.quarkus.opentelemetry.runtime.config.runtime.exporter.*;
 import io.quarkus.opentelemetry.runtime.exporter.otlp.logs.NoopLogRecordExporter;
 import io.quarkus.opentelemetry.runtime.exporter.otlp.logs.VertxGrpcLogRecordExporter;
 import io.quarkus.opentelemetry.runtime.exporter.otlp.logs.VertxHttpLogRecordExporter;

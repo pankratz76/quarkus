@@ -1,7 +1,9 @@
 package io.quarkus.vertx.web.validation;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.Matchers.emptyString;
 
 import jakarta.enterprise.context.ApplicationScoped;

@@ -2,7 +2,15 @@ package io.quarkus.maven.it.verifier;
 
 import java.io.File;
 
-import org.apache.maven.shared.invoker.*;
+import org.apache.maven.shared.invoker.CommandLineConfigurationException;
+import org.apache.maven.shared.invoker.DefaultInvoker;
+import org.apache.maven.shared.invoker.InvocationOutputHandler;
+import org.apache.maven.shared.invoker.InvocationRequest;
+import org.apache.maven.shared.invoker.InvocationResult;
+import org.apache.maven.shared.invoker.InvokerLogger;
+import org.apache.maven.shared.invoker.MavenCommandLineBuilder;
+import org.apache.maven.shared.invoker.MavenInvocationException;
+import org.apache.maven.shared.invoker.SystemOutHandler;
 import org.apache.maven.shared.utils.cli.CommandLineException;
 import org.apache.maven.shared.utils.cli.Commandline;
 import org.apache.maven.shared.utils.cli.StreamConsumer;

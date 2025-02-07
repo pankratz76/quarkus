@@ -10,6 +10,10 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import com.mongodb.client.model.InsertOneModel;
+import com.mongodb.client.model.ReplaceOneModel;
+import com.mongodb.client.model.ReplaceOptions;
+import com.mongodb.client.model.WriteModel;
 import jakarta.transaction.Status;
 import jakarta.transaction.Synchronization;
 import jakarta.transaction.SystemException;
@@ -30,7 +34,6 @@ import com.mongodb.client.ClientSession;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.*;
 import com.mongodb.client.result.DeleteResult;
 
 import io.quarkus.arc.Arc;

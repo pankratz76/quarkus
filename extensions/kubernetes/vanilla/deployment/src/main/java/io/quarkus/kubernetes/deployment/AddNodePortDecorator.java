@@ -1,6 +1,7 @@
 package io.quarkus.kubernetes.deployment;
 
-import static io.quarkus.kubernetes.deployment.Constants.*;
+import static io.quarkus.kubernetes.deployment.Constants.MAX_NODE_PORT_VALUE;
+import static io.quarkus.kubernetes.deployment.Constants.MIN_NODE_PORT_VALUE;
 
 import java.util.function.Predicate;
 

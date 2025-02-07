@@ -4,7 +4,8 @@ import static io.quarkus.kubernetes.deployment.Constants.OPENSHIFT_INTERNAL_REGI
 
 import java.util.Optional;
 
-import io.dekorate.kubernetes.decorator.*;
+import io.dekorate.kubernetes.decorator.Decorator;
+import io.dekorate.kubernetes.decorator.NamedResourceDecorator;
 import io.dekorate.s2i.decorator.AddBuildConfigResourceDecorator;
 import io.fabric8.kubernetes.api.model.ObjectMeta;
 import io.fabric8.openshift.api.model.SourceBuildStrategyFluent;

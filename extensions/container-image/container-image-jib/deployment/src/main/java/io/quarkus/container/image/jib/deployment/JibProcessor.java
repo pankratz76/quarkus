@@ -6,7 +6,7 @@ import static com.google.cloud.tools.jib.api.buildplan.FilePermissions.DEFAULT_F
 import static io.quarkus.container.image.deployment.util.EnablementUtil.buildContainerImageNeeded;
 import static io.quarkus.container.image.deployment.util.EnablementUtil.pushContainerImageNeeded;
 import static io.quarkus.container.util.PathsUtil.findMainSourcesRoot;
-import static io.quarkus.deployment.pkg.PackageConfig.JarConfig.JarType.*;
+import static io.quarkus.deployment.pkg.PackageConfig.JarConfig.JarType.MUTABLE_JAR;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;

@@ -1,6 +1,6 @@
 package io.quarkus.micrometer.opentelemetry.deployment.common;
 
-import static io.quarkus.micrometer.opentelemetry.deployment.compatibility.MicrometerCounterInterceptorTest.*;
+import static io.quarkus.micrometer.opentelemetry.deployment.compatibility.MicrometerCounterInterceptorTest.TestValueResolver;
 import static java.util.concurrent.CompletableFuture.supplyAsync;
 
 import java.util.concurrent.CompletableFuture;

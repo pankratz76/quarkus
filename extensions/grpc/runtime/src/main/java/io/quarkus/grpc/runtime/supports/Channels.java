@@ -5,7 +5,12 @@ import static io.grpc.internal.GrpcUtil.DEFAULT_MAX_MESSAGE_SIZE;
 import static io.grpc.netty.NettyChannelBuilder.DEFAULT_FLOW_CONTROL_WINDOW;
 import static io.quarkus.grpc.runtime.GrpcTestPortUtils.testPort;
 import static io.quarkus.grpc.runtime.config.GrpcClientConfiguration.DNS;
-import static io.quarkus.grpc.runtime.supports.SSLConfigHelper.*;
+import static io.quarkus.grpc.runtime.supports.SSLConfigHelper.configureJksKeyCertOptions;
+import static io.quarkus.grpc.runtime.supports.SSLConfigHelper.configureJksTrustOptions;
+import static io.quarkus.grpc.runtime.supports.SSLConfigHelper.configurePemKeyCertOptions;
+import static io.quarkus.grpc.runtime.supports.SSLConfigHelper.configurePemTrustOptions;
+import static io.quarkus.grpc.runtime.supports.SSLConfigHelper.configurePfxKeyCertOptions;
+import static io.quarkus.grpc.runtime.supports.SSLConfigHelper.configurePfxTrustOptions;
 
 import java.io.IOException;
 import java.io.InputStream;

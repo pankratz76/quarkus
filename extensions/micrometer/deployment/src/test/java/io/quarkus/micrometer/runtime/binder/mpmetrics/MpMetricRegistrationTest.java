@@ -2,7 +2,9 @@ package io.quarkus.micrometer.runtime.binder.mpmetrics;
 
 import jakarta.inject.Inject;
 
-import org.eclipse.microprofile.metrics.*;
+import org.eclipse.microprofile.metrics.Metadata;
+import org.eclipse.microprofile.metrics.MetricType;
+import org.eclipse.microprofile.metrics.Tag;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;

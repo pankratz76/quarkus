@@ -1,7 +1,8 @@
 package io.quarkus.restclient.runtime;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
-import static org.eclipse.microprofile.rest.client.ext.QueryParamStyle.*;
+import static org.eclipse.microprofile.rest.client.ext.QueryParamStyle.COMMA_SEPARATED;
+import static org.eclipse.microprofile.rest.client.ext.QueryParamStyle.MULTI_PAIRS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.verify;

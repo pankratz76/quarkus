@@ -1,6 +1,6 @@
 package io.quarkus.test.common;
 
-import static io.quarkus.test.common.LauncherUtil.*;
+import static io.quarkus.test.common.LauncherUtil.LOG_CHECK_INTERVAL;
 import static java.lang.ProcessBuilder.Redirect.PIPE;
 
 import java.io.BufferedReader;

@@ -1,6 +1,6 @@
 package io.quarkus.resteasy.reactive.server.test.customexceptions;
 
-import static io.quarkus.resteasy.reactive.server.test.ExceptionUtil.*;
+import static io.quarkus.resteasy.reactive.server.test.ExceptionUtil.removeStackTrace;
 
 import java.util.function.Supplier;
 

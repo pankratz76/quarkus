@@ -1,7 +1,14 @@
 package io.quarkus.kubernetes.deployment;
 
 import static io.dekorate.kubernetes.decorator.AddServiceResourceDecorator.distinct;
-import static io.quarkus.kubernetes.deployment.Constants.*;
+import static io.quarkus.kubernetes.deployment.Constants.DEFAULT_HTTP_PORT;
+import static io.quarkus.kubernetes.deployment.Constants.HTTP_PORT;
+import static io.quarkus.kubernetes.deployment.Constants.KNATIVE;
+import static io.quarkus.kubernetes.deployment.Constants.QUARKUS_ANNOTATIONS_BUILD_TIMESTAMP;
+import static io.quarkus.kubernetes.deployment.Constants.QUARKUS_ANNOTATIONS_COMMIT_ID;
+import static io.quarkus.kubernetes.deployment.Constants.QUARKUS_ANNOTATIONS_QUARKUS_VERSION;
+import static io.quarkus.kubernetes.deployment.Constants.QUARKUS_ANNOTATIONS_VCS_URL;
+import static io.quarkus.kubernetes.deployment.Constants.SERVICE_ACCOUNT;
 
 import java.nio.file.Path;
 import java.time.ZoneOffset;

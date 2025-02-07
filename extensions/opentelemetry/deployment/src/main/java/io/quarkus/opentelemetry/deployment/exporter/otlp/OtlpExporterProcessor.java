@@ -6,6 +6,12 @@ import java.util.List;
 import java.util.function.BooleanSupplier;
 import java.util.logging.Level;
 
+import io.quarkus.deployment.annotations.BuildProducer;
+import io.quarkus.deployment.annotations.BuildStep;
+import io.quarkus.deployment.annotations.BuildSteps;
+import io.quarkus.deployment.annotations.Consume;
+import io.quarkus.deployment.annotations.ExecutionTime;
+import io.quarkus.deployment.annotations.Record;
 import jakarta.enterprise.inject.Instance;
 import jakarta.inject.Singleton;
 
@@ -20,7 +26,6 @@ import io.opentelemetry.sdk.trace.SpanProcessor;
 import io.opentelemetry.sdk.trace.export.SpanExporter;
 import io.quarkus.arc.deployment.BeanDiscoveryFinishedBuildItem;
 import io.quarkus.arc.deployment.SyntheticBeanBuildItem;
-import io.quarkus.deployment.annotations.*;
 import io.quarkus.deployment.annotations.Record;
 import io.quarkus.deployment.builditem.LogCategoryBuildItem;
 import io.quarkus.deployment.builditem.RunTimeConfigBuilderBuildItem;

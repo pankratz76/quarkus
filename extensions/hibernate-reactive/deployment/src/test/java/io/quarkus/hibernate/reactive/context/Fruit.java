@@ -1,6 +1,8 @@
 package io.quarkus.hibernate.reactive.context;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "context_fruits")

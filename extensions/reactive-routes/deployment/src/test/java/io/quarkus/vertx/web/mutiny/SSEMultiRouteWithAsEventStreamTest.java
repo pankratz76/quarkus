@@ -1,7 +1,10 @@
 package io.quarkus.vertx.web.mutiny;
 
 import static io.restassured.RestAssured.when;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.hasLength;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 
 import java.io.IOException;
 

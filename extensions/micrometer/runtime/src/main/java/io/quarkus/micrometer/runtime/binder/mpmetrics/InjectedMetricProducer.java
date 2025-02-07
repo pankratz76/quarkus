@@ -4,7 +4,12 @@ import jakarta.enterprise.inject.Produces;
 import jakarta.enterprise.inject.spi.InjectionPoint;
 import jakarta.inject.Singleton;
 
-import org.eclipse.microprofile.metrics.*;
+import org.eclipse.microprofile.metrics.ConcurrentGauge;
+import org.eclipse.microprofile.metrics.Counter;
+import org.eclipse.microprofile.metrics.Histogram;
+import org.eclipse.microprofile.metrics.Meter;
+import org.eclipse.microprofile.metrics.SimpleTimer;
+import org.eclipse.microprofile.metrics.Timer;
 import org.eclipse.microprofile.metrics.annotation.Metric;
 import org.jboss.logging.Logger;
 
