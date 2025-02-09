@@ -184,13 +184,22 @@
                     <configuration>
                         <configLocation>checkstyle.xml</configLocation>
                     </configuration>
-                    <reportSets>
-                        <reportSet>
-                            <reports>
-                                <report>checkstyle</report>
-                            </reports>
-                        </reportSet>
-                    </reportSets>
+                    <executions>
+                        <execution>
+                            <id>validate</id>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+<!--                    <reportSets>-->
+<!--                        <reportSet>-->
+<!--                            <reports>-->
+<!--                                <report>checkstyle</report>-->
+<!--                            </reports>-->
+<!--                        </reportSet>-->
+<!--                    </reportSets>-->
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -198,6 +207,10 @@
             <plugin>
                 <groupId>org.ec4j.maven</groupId>
                 <artifactId>editorconfig-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
             </plugin>
         </plugins>
         <extensions>
