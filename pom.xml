@@ -186,7 +186,7 @@
                     </configuration>
                     <executions>
                         <execution>
-                            <id>validate</id>
+                            <id>checkstyle</id>
                             <phase>validate</phase>
                             <goals>
                                 <goal>check</goal>
