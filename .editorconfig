@@ -1,6 +1,6 @@
 [*]
 charset = utf-8
-# end_of_line = lf  fixme
+# end_of_line w= lf
 #  There are .editorconfig violations. You may want to run
 # [ERROR]
 # [ERROR]     mvn editorconfig:format
