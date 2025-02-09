@@ -186,20 +186,11 @@
                     </configuration>
                     <executions>
                         <execution>
-                            <id>checkstyle</id>
-                            <phase>validate</phase>
                             <goals>
                                 <goal>check</goal>
                             </goals>
                         </execution>
                     </executions>
-<!--                    <reportSets>-->
-<!--                        <reportSet>-->
-<!--                            <reports>-->
-<!--                                <report>checkstyle</report>-->
-<!--                            </reports>-->
-<!--                        </reportSet>-->
-<!--                    </reportSets>-->
                 </plugin>
             </plugins>
         </pluginManagement>
