@@ -1,5 +1,6 @@
 package io.quarkus.rest.client.reactive;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.is;
 
 import java.util.Map;

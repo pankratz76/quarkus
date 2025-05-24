@@ -1,6 +1,7 @@
 package io.quarkus.redis.datasource;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.awaitility.Awaitility.await;
 
 import java.time.Duration;
 import java.util.List;

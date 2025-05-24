@@ -3,6 +3,7 @@ package io.quarkus.redis.datasource.keys;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
+import java.util.Set;
 
 import io.quarkus.redis.datasource.RedisCommands;
 
