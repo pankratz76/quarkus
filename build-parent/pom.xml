@@ -693,22 +693,6 @@
                             </importOrder>
                         </java>
                     </configuration>
-                    <executions>
-<!--                        <execution>-->
-<!--                            <id>spotless-check</id>-->
-<!--                            <goals>-->
-<!--                                <goal>check</goal>-->
-<!--                            </goals>-->
-<!--                            <phase>verify</phase>-->
-<!--                        </execution>-->
-                        <execution>
-                            <id>spotless-apply</id>
-                            <goals>
-                                 <goal>apply</goal>
-                            </goals>
-                            <phase>verify</phase>
-                        </execution>
-                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
