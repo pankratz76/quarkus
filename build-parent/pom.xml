@@ -697,7 +697,7 @@
 <!--                        <execution>-->
 <!--                            <id>spotless-check</id>-->
 <!--                            <goals>-->
-<!--                                <goal>apply</goal>-->
+<!--                                <goal>check</goal>-->
 <!--                            </goals>-->
 <!--                            <phase>verify</phase>-->
 <!--                        </execution>-->
@@ -712,12 +712,6 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>com.diffplug.spotless</groupId>
-                <artifactId>spotless-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
     </build>
 
     <profiles>
@@ -843,6 +837,58 @@
 
                             </kotlin>
                         </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>format-spotless-check</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>!no-format</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.diffplug.spotless</groupId>
+                        <artifactId>spotless-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>format-java</id>
+                                <phase>process-sources</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>format-spotless-apply</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>!no-format</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.diffplug.spotless</groupId>
+                        <artifactId>spotless-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>format-java</id>
+                                <phase>process-sources</phase>
+                                <goals>
+                                    <goal>apply</goal>
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>
